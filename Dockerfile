@@ -19,7 +19,7 @@ RUN apt-get install -yq software-properties-common && \
 	add-apt-repository ppa:ondrej/apache2 && \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -yq --force-yes install \
-		php7.0
+	php7.0 \
         apache2 \
         libapache2-mod-php7.0 \
         php7.0-mysql \
@@ -28,8 +28,8 @@ RUN apt-get install -yq software-properties-common && \
         php-pear \
         php-apc && \
     rm -rf /var/lib/apt/lists/*
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
-    sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php5/apache2/php.ini
+
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # Default Configuration
 ## enable mod_rewrite/AllowOverride
