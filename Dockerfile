@@ -18,7 +18,7 @@ RUN apt-get install -yq software-properties-common && \
 	add-apt-repository ppa:ondrej/php && \
 	add-apt-repository ppa:ondrej/apache2 && \
     apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get -yq install \
+    DEBIAN_FRONTEND=noninteractive apt-get -yq --force-yes install \
 		php7.0
         apache2 \
         libapache2-mod-php7.0 \
@@ -32,7 +32,8 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
     sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php5/apache2/php.ini
 
 # Default Configuration
-ENV ALLOW_OVERRIDE True ## enable mod_rewrite/AllowOverride
+## enable mod_rewrite/AllowOverride
+ENV ALLOW_OVERRIDE True
 
 # Add image configuration and scripts
 ADD run.sh /run.sh
@@ -41,6 +42,7 @@ RUN chmod 755 /*.sh
 # Configure www/html folder with sample app
 RUN rm -rf /var/www && \
     mkdir /var/www
+    
 # Copy default/php test content
 COPY www/ /var/www 
 VOLUME /var/www
