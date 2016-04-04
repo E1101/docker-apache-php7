@@ -14,7 +14,7 @@ MAINTAINER Payam Naderi <naderi.payam@gmail.com>
 ## install python-software-properties package on your system which 
 ## provides add-apt-repository command then use the following set of 
 ## commands to add PPA for PHP 7 in your Ubuntu system and install it
-RUN apt-get install -yq python-software-properties && \
+RUN apt-get install -yq software-properties-common && \
 	add-apt-repository ppa:ondrej/php && \
 	add-apt-repository ppa:ondrej/apache2 && \
     apt-get update && \
