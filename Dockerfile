@@ -37,7 +37,8 @@ ENV ALLOW_OVERRIDE True
 
 # Add image configuration and scripts
 ADD run.sh /run.sh
-RUN chmod 755 /*.sh
+RUN chmod 755 /*.sh && \
+    sed -i -e 's/\r$//' /run.sh
 
 # Configure www/html folder with sample app
 RUN rm -rf /var/www && \
