@@ -18,7 +18,7 @@ MAINTAINER Payam Naderi <naderi.payam@gmail.com>
 RUN apt-get update && \ 
     apt-get install -yq --fix-missing software-properties-common && \
 	add-apt-repository ppa:ondrej/php && \
-	add-apt-repository ppa:ondrej/apache2 && \
+	add-apt-repository ppa:ondrej/apache2
    
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -yq --fix-missing --force-yes \
