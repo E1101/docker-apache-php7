@@ -19,7 +19,10 @@ MAINTAINER Payam Naderi <naderi.payam@gmail.com>
 ## commands to add PPA for PHP 7 in your Ubuntu system and install it
 RUN rm /var/lib/apt/lists/* -vrf && \
     apt-get clean && apt-get update && \ 
-    apt-get install -yq --fix-missing software-properties-common && \
+    apt-get install -yq --fix-missing \ 
+            python-software-properties \
+	    software-properties-common \
+	    software-properties-common && \
 	add-apt-repository ppa:ondrej/php && \
 	add-apt-repository ppa:ondrej/apache2
    
