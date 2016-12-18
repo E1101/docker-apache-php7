@@ -24,7 +24,7 @@ RUN rm /var/lib/apt/lists/* -vrf && \
     apt-get clean && apt-get update && \ 
     apt-get install -yq --fix-missing \ 
             python-software-properties \
-	    software-properties-common && \
+	    software-properties-common \
 	&& LC_ALL=C.UTF-8 \    
 	add-apt-repository ppa:ondrej/php && \
 	add-apt-repository ppa:ondrej/apache2
