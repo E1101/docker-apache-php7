@@ -38,7 +38,7 @@ RUN apt-get update && \
         php7.0-curl \
         php7.0-json \
         php-pear \
-        php-apc && \
+        php7.0-apc && \
     rm -rf /var/lib/apt/lists/*
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
